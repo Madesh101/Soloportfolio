@@ -1,4 +1,8 @@
 import "./Projects.css";
+import ecommerceImg from "../assets/ecommerce.png";
+import portfolioImg from "../assets/soloP.png";
+import rockpaperscissorsImg from "../assets/RPS.png";
+import todolistImg from "../assets/Todo.png";
 
 
 
@@ -8,8 +12,8 @@ const projects = [
     title: "PORTFOLIO",
     desc: "Personal developer portfolio with retro terminal aesthetic, glitch animations, matrix rain, shattered glass profile, and scroll-triggered effects.",
     tags: ["React", "CSS3", "Vite"],
-    image: null,              // ← add your portfolio screenshot here
-    liveLink: "https://soloportfoliomadesh.vercel.app",          
+    image: portfolioImg,              // ← add your portfolio screenshot here
+    liveLink: "https://soloportfoliom.vercel.app",          
     githubLink: "https://github.com/Madesh101/Soloportfolio",        
     liveLabel: "LIVE DEMO",
     githubLabel: "GITHUB",
@@ -17,9 +21,9 @@ const projects = [
   {
     num: "02",
     title: "E-COMMERCE",
-    desc: "storefront with product listings, cart, and checkout flow.",
+    desc: "Ecommerce website with product listings, cart, and checkout flow.",
     tags: ["React", "JavaScript", "CSS"],
-    image: null,              
+    image: ecommerceImg,              
     liveLink: "https://soloecommerce.vercel.app",
     githubLink: "https://github.com/Madesh101/ecommerce-project",
     liveLabel: "LIVE DEMO",
@@ -30,7 +34,7 @@ const projects = [
     title: "TODO LIST",
     desc: "Minimal productivity app with task management, completion tracking, and a clean monochrome interface. Built with vanilla JS logic.",
     tags: ["React", "JavaScript", "CSS"],
-    image: null,            
+    image: todolistImg,            
     liveLink: "https://solotodolist.vercel.app",
     githubLink: "https://github.com/Madesh101/Todo-list",
     liveLabel: "LIVE DEMO",
@@ -41,7 +45,7 @@ const projects = [
     title: "ROCK PAPER SCISSORS",
     desc: "Interactive rock paper scissors game with score tracking, animated choices, and instant result feedback. Clean minimal UI.",
     tags: ["JavaScript", "CSS", "HTML"],
-    image: null,              
+    image: rockpaperscissorsImg,              
     liveLink: "https://solorockpaperscissors.vercel.app",
     githubLink: "https://github.com/Madesh101/Rock-Paper-Scissors",
     liveLabel: "LIVE DEMO",
