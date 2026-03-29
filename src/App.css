@@ -1,0 +1,172 @@
+html,
+body {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-snap-stop: always;
+}
+
+
+* {
+  font-family: 'VT323', monospace;
+}
+
+
+/* .hero layout is fully controlled by Hero.css — do not set flex-direction here */
+.skills {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(235, 227, 227);
+  position: relative;
+}
+
+.skills {
+  background: black;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  font-size: 30px;
+  cursor: pointer;
+  border: 1px solid white;
+  padding: 8px 14px;
+}
+
+.up {
+  top: 40px;
+  bottom: auto;
+}
+
+
+.circle-svg {
+  width: 480px;
+  height: 480px;
+  animation: spin 20s linear infinite;
+}
+
+.rotating-text {
+  width: 500px;
+  height: 500px;
+  animation: spin 25s linear infinite;
+}
+
+
+text {
+  fill: black;
+  font-size: 17px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+.center-name {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.center-name h1 {
+  margin: 0;
+  font-size: 48px;
+}
+
+.center-name p {
+  margin: 0;
+  opacity: 0.7;
+}
+
+.rotating-ring {
+  animation: spin 20s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+
+}
+
+body {
+  cursor: none;
+}
+
+/* Small dot */
+.cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+/* Ring */
+.cursor-ring {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+  transition: width .2s,height .2s;
+}
+
+/* Hover grow */
+a:hover ~ .cursor-ring,
+button:hover ~ .cursor-ring {
+  width: 48px;
+  height: 48px;
+}
+/* Bottom right control box */
+.nav-controls {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;   /* 👈 move to right */
+  left: auto;    /* 👈 disable left */
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+  z-index: 999;
+}
+
+section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+}
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.skills {
+  background: black;
+  color: white;
+}

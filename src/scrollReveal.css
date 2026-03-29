@@ -1,0 +1,110 @@
+/* ============================================================
+   SCROLL REVEAL — Retro Glitch/Flicker entrance animations
+   Add class "sr" to any element.
+   Optional modifiers:
+     sr-delay-1  through  sr-delay-5   (stagger)
+     sr-from-left / sr-from-right      (slide direction)
+     sr-scale                          (zoom in)
+   ============================================================ */
+
+/* BASE — hidden state */
+.sr {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.01s,
+    transform 0.01s;
+  /* no smooth transition — we handle it with the keyframe */
+}
+
+/* VISIBLE — triggers the glitch-flicker keyframe */
+.sr.sr-visible {
+  animation: srGlitchReveal 0.55s forwards;
+}
+
+/* FROM LEFT */
+.sr.sr-from-left {
+  transform: translateX(-40px);
+}
+.sr.sr-from-left.sr-visible {
+  animation: srGlitchLeft 0.55s forwards;
+}
+
+/* FROM RIGHT */
+.sr.sr-from-right {
+  transform: translateX(40px);
+}
+.sr.sr-from-right.sr-visible {
+  animation: srGlitchRight 0.55s forwards;
+}
+
+/* SCALE */
+.sr.sr-scale {
+  transform: scale(0.88);
+}
+.sr.sr-scale.sr-visible {
+  animation: srGlitchScale 0.55s forwards;
+}
+
+/* ── STAGGER DELAYS ── */
+.sr-delay-1 { animation-delay: 0.08s !important; }
+.sr-delay-2 { animation-delay: 0.16s !important; }
+.sr-delay-3 { animation-delay: 0.24s !important; }
+.sr-delay-4 { animation-delay: 0.32s !important; }
+.sr-delay-5 { animation-delay: 0.42s !important; }
+
+/* ============================================================
+   KEYFRAMES — glitch flicker entrance
+   Step 1: brief flicker (opacity jumps)
+   Step 2: chromatic aberration (clip-path / color glitch)
+   Step 3: settle to normal
+   ============================================================ */
+
+@keyframes srGlitchReveal {
+  0%   { opacity: 0;    transform: translateY(28px);  clip-path: inset(60% 0 0 0); }
+  8%   { opacity: 0.9;  transform: translateY(28px);  clip-path: inset(0% 0 0 0);
+         text-shadow: 2px 0 #f00, -2px 0 #0ff; }
+  10%  { opacity: 0;    transform: translateY(26px);  clip-path: inset(30% 0 10% 0); }
+  18%  { opacity: 1;    transform: translateY(24px);
+         text-shadow: -2px 0 #f00, 2px 0 #0ff; }
+  22%  { opacity: 0.7;  transform: translateY(14px);  clip-path: inset(0 0 0 0); }
+  28%  { opacity: 1;    transform: translateY(8px);
+         text-shadow: 1px 0 #f00, -1px 0 #0ff; }
+  38%  { opacity: 1;    transform: translateY(3px);   text-shadow: none; }
+  50%  { opacity: 1;    transform: translateY(0);     text-shadow: none; }
+  100% { opacity: 1;    transform: translateY(0);     text-shadow: none;
+         clip-path: inset(0 0 0 0); }
+}
+
+@keyframes srGlitchLeft {
+  0%   { opacity: 0;   transform: translateX(-40px); clip-path: inset(0 60% 0 0); }
+  8%   { opacity: 0.9; transform: translateX(-40px); clip-path: inset(0 0 0 0);
+         text-shadow: 2px 0 #f00, -2px 0 #0ff; }
+  10%  { opacity: 0;   transform: translateX(-36px); }
+  18%  { opacity: 1;   transform: translateX(-24px); text-shadow: -2px 0 #f00, 2px 0 #0ff; }
+  28%  { opacity: 1;   transform: translateX(-10px); text-shadow: none; }
+  45%  { opacity: 1;   transform: translateX(0);     text-shadow: none; }
+  100% { opacity: 1;   transform: translateX(0);     text-shadow: none; clip-path: inset(0); }
+}
+
+@keyframes srGlitchRight {
+  0%   { opacity: 0;   transform: translateX(40px);  clip-path: inset(0 0 0 60%); }
+  8%   { opacity: 0.9; transform: translateX(40px);  clip-path: inset(0 0 0 0);
+         text-shadow: -2px 0 #f00, 2px 0 #0ff; }
+  10%  { opacity: 0;   transform: translateX(36px); }
+  18%  { opacity: 1;   transform: translateX(24px);  text-shadow: 2px 0 #f00, -2px 0 #0ff; }
+  28%  { opacity: 1;   transform: translateX(10px);  text-shadow: none; }
+  45%  { opacity: 1;   transform: translateX(0);     text-shadow: none; }
+  100% { opacity: 1;   transform: translateX(0);     text-shadow: none; clip-path: inset(0); }
+}
+
+@keyframes srGlitchScale {
+  0%   { opacity: 0;   transform: scale(0.88); clip-path: inset(20% 0 20% 0);
+         text-shadow: 3px 0 #f00, -3px 0 #0ff; }
+  10%  { opacity: 0.8; transform: scale(0.92); clip-path: inset(0 0 0 0); }
+  15%  { opacity: 0;   transform: scale(0.90); }
+  25%  { opacity: 1;   transform: scale(0.96); text-shadow: -1px 0 #f00, 1px 0 #0ff; }
+  40%  { opacity: 1;   transform: scale(1.01); text-shadow: none; }
+  55%  { opacity: 1;   transform: scale(1.00); }
+  100% { opacity: 1;   transform: scale(1);    text-shadow: none; clip-path: inset(0); }
+}

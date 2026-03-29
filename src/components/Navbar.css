@@ -1,0 +1,131 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 18px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'VT323', monospace;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-logo {
+  font-size: 26px;
+  color: white;
+  letter-spacing: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-logo span {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 3px;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-hire {
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: black;
+  background: white;
+  border: none;
+  padding: 8px 22px;
+  cursor: pointer;
+  font-family: 'VT323', monospace;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.nav-hire:hover {
+  background: transparent;
+  color: white;
+  outline: 1px solid white;
+}
+
+/* Hamburger for mobile */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-hamburger span {
+  width: 24px;
+  height: 1px;
+  background: white;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 18px 24px;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: black;
+    padding: 30px 24px;
+    gap: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .nav-hire {
+    display: none;
+  }
+}
